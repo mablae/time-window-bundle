@@ -1,0 +1,31 @@
+{
+  "name": "mablae/time-window-bundle",
+  "version": "0.1.0",
+  "description": "Symfony bundle for time based feature flags",
+  "keywords": [
+    "symfony",
+    "feature flag",
+    "bundle",
+    "time",
+    "flag",
+    "checker",
+    "voter",
+  ],
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Malte Blättermann"
+    }
+  ],
+  "require": {
+    "php": ">=5.3",
+    "symfony/framework-bundle": "2.*",
+    "symfony/symfony": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mablae\\TimeWindowBundle\\": "lib"
+    }
+  }
+}
