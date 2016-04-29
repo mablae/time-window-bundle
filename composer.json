@@ -1,6 +1,6 @@
 {
   "name": "mablae/time-window-bundle",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Symfony bundle for time based feature flags",
   "keywords": [
     "symfony",
