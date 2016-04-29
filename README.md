@@ -2,7 +2,11 @@
 
 This bundle implements implements basically daytime based feature flags. 
 
-Please feel free to contribute, to fork, to send merge request and to create ticket.
+**NOTICE** This bundle is the result of quickly decoupling some logic we already had duplicated in serveral places
+of an legacy codebase. If you are looking for a *full featured* Feature Toggle Bundle for Symfony you are probably better using
+https://github.com/qandidate-labs/qandidate-toggle-bundle
+
+Feel free to contribute or leave feedback in the issues. <3
 
 ##Installation
 
