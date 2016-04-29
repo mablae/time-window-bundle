@@ -9,7 +9,7 @@
     "time",
     "flag",
     "checker",
-    "voter",
+    "voter"
   ],
   "type": "symfony-bundle",
   "license": "MIT",
