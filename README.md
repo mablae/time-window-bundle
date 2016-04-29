@@ -1,6 +1,6 @@
-#DatetimepickerBundle
+# TimeWindowBundle
 
-This bundle implements the [Bootstrap DateTime Picker v4](http://eonasdan.github.io/bootstrap-datetimepicker/Installing/#bower-) in a Form Type for Symfony 2.*. The bundle structure is inspired by GenemuFormBundle.
+This bundle implements implements basically daytime based feature flags. 
 
 Please feel free to contribute, to fork, to send merge request and to create ticket.
 
@@ -22,53 +22,34 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Mablae\DatetimepickerBundle\MablaeDatetimepickerBundle(),
+        new Mablae\TimeWindowBundle\MablaeTimeWindowBundle(),
     );
 }
 ```
 
+
+### Step 3: Configure your named time windows:
 ``` yml
 # app/config/config.yml
-mablae_datetimepicker:
-    picker: ~
+mablae_time_window_:
+    enabled: ~
+    time_windows:
+      in_the_morning:
+        - { startTime : '06:00' , endTime: '08:00' }
 ```
 
-### Step 3: Install moment.js and Bootstrap3 Datepicker
+At the moment there is no proper overlapping checks or sorting. The timewindow must be defined in correct order. 
+The first timewindow that returns active wins.
 
-This bundle does not handle an asset minification or loading. Just use gulp or webpack. 
-
-```
-http://eonasdan.github.io/bootstrap-datetimepicker/Installing/
-```
-
-## Usages
-
+### Step 4: Use the voter service to ask, if a time-window is active
 ``` php
-<?php
-// ...
-public function buildForm(FormBuilder $builder, array $options)
-{
-    $builder
-        // defaut options
-        ->add('createdAt', 'mablae_datetime') 
-        
-        // full options
-        ->add('updatedAt', 'mablae_datetime', array( 'pickerOptions' =>
-            array('format' => 'mm/dd/yyyy',
-                'viewMode' => 'days', // days, month, years, decades
-                                     
-                ))); 
-                
-}
-```
 
+<?php 
+/* ... */ 
 
-Include the javascript needed to initialize the widget: 
+$timeWindowService = $this->get('mablae_time_window.service');
 
-``` jinja2
+$itsInTheMorning = $timeWindowService->isTimeWindowActive('in_the_morning')
 
-...
-{{ form_javascript(your.form.field) }}
-...
 
 ```
