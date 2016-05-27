@@ -1,7 +1,9 @@
 <?php
 namespace Mablae\TimeWindowBundle;
 
-class TimeWindowService
+
+
+class TimeWindowService implements TimeWindowServiceInterface
 {
 
     /**
